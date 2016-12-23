@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html ng-csp="no-unsafe-eval" ng-app="myApp">
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>tabspace Menu</title>
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script> 
+        <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+
+    <body> 
+        <nav class = "navbar navbar-default" role = "navigation">
+            <div class="container">
+                <div class="row">
+                    <!-- NAVIGATION -->
+                    <div class="navigation">
+                        <ul class="nav nav-stacked col-xs-3" id="mytabs">
+                            <br><br><br>
+                            <li class="active">
+                                <a href="#home" data-toggle="tab">Home</a>
+                            </li>
+                            <li>
+                                <a href="#create" data-toggle="tab">Create</a>
+                            </li>
+                            <li>
+                                <a href="" data-toggle="tab" id="loadEdit">Edit</a>
+                            </li>
+                            <br><br><br><br><br><br>
+                            <center><img src="../img/tab-logo.png"></center>
+                        </ul>
+                    </div>
+
+                    <!-- TAB CONTENT -->
+                    <div class="tab-content col-xs-9">
+                        <div class="tab-pane fade in active" id="home">
+                            
+                            <div class="row"  id="generateTabs">   
+                                <input id="toggle-event" type="checkbox" checked data-toggle="toggle" data-size="mini"> Open in new window
+                                <br>                             
+                                <a href= "#" class="links" id="newTabspaceFromTabs">Save current window as tabspace</a>
+                                <br><br><br>
+                                
+                            </div>
+                        </div>
+
+                        <div class="tab-pane fade" id="create">
+                             <form name="create_form" ng-submit="submitForm($event)" novalidate ng-controller="createController">
+                            <center><p>
+                                <br>
+                                <p>Create your tabspace</p>
+                                <br>
+                                title <br><br>
+                               
+                                <input type="text" id="textbox-name" placeholder="School, Project X" ng-model="name" required>
+                                
+                                <br>
+                                 <sup ng-show="create_form.$invalid && create_form.$dirty " >Name is required.</sup>
+                                <br><br><br>
+
+                                add tabs
+                                </form>
+                                <sup><a href="#" id=question-mark data-toggle="popover" data-trigger="hover" data-content="Enter urls of pages that you'd like to add to your tabspace."><i class="fa fa-question-circle" aria-hidden="true"></i></a></sup>
+                                <br><br>
+                                <input type="text" id="textbox-add" placeholder="www.google.com"></input>
+                                <br><br>
+                                <ul id="list-add" class="list"></ul>
+                                <br><br>
+
+                                block tabs
+                                <sup><a href="#" id=question-mark data-toggle="popover" data-trigger="hover" data-content="Enter urls of pages that you'd like to restrict while on your tabspace."><i class="fa fa-question-circle" aria-hidden="true"></i></a></sup>
+                                <br><br>
+                                <input type="text" id="textbox-block" placeholder="www.google.com"></input>
+                                <br><br>
+                                <ul id="list-block" class="list"></ul>
+                                <br><br>
+                                <button type="button" id="changetabbutton" ng-disabled="create_form.$invalid" class="btn btn-primary">Submit</button>
+
+                            </center></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+        <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        
+        <script src="popup.js"></script>
+        <script src="app.js"></script>
+         
+    </body>
+</html>
+
